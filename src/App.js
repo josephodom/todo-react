@@ -14,11 +14,6 @@ function App() {
     
     const [ list, setList, ] = useState(loadedTodos);
     
-    // Load
-    useEffect(() => {
-        const list = JSON.parse(localStorage.getItem('list'));
-    }, [ list, ]);
-    
     // Save
     useEffect(() => {
         localStorage.setItem('list', JSON.stringify(list));
