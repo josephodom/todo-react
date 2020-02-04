@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
 function App() {
+    const [ list, setTodos, ] = useState([
+        {name:'todo0',checked:false,},
+        {name:'todo1',checked:true,},
+    ]);
+    
     return (
         <main>
             <header>
-                <div class="container">
+                <div className="container">
                     <h1>React Todo List</h1>
                 </div>
             </header>
@@ -14,10 +19,12 @@ function App() {
             <hr />
             
             <article>
-                <div class="container">
+                <div className="container">
                     <h2>To Do</h2>
                     
-                    <TodoList />
+                    <ul>
+                        <TodoList list={list} />
+                    </ul>
                     
                     <hr />
                     

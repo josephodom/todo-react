@@ -1,17 +1,12 @@
 import React from 'react';
+import TodoItem from './TodoItem';
 
-export default function TodoList() {
+export default function TodoList({ list, }) {
 	return (
-		<div>
-			<ul>
-				<li>
-					<label>
-						<input type="checkbox" />
-						&nbsp;
-						Item 1
-					</label>
-				</li>
-			</ul>
-		</div>
+		list.map(item => {
+			return (
+				<TodoItem key={item.name} item={item} />
+			)
+		})
 	)
 }
