@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TodoForm from './TodoForm';
+import TodoList from './TodoList';
 
 function App() {
     return (
@@ -16,6 +16,12 @@ function App() {
             <article>
                 <div class="container">
                     <h2>To Do</h2>
+                    
+                    <TodoList />
+                    
+                    <hr />
+                    
+                    <TodoForm />
                 </div>
             </article>
         </main>
