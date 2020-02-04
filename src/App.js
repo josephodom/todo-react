@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
+import uuid from 'uuid/v4';
 
 function App() {
     const [ list, setList, ] = useState([]);
@@ -18,7 +19,7 @@ function App() {
         };
         
         todo.name = field.value;
-        todo.key = `${Math.floor(Math.random() * 8888) + 1111}-${new Date().getTime()}`;
+        todo.key = uuid();
         
         setList(currentList => {
             return [ ...currentList, todo, ];

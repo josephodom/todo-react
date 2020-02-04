@@ -7,6 +7,8 @@ export default function TodoItem({ item, }) {
 				<input type="checkbox" checked={item.done} />
 				&nbsp;
 				{item.name}
+				
+				<code>{item.key}</code>
 			</label>
 		</li>
 	)
