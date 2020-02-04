@@ -3,10 +3,29 @@ import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
 function App() {
-    const [ list, setTodos, ] = useState([
-        {name:'todo0',checked:false,},
-        {name:'todo1',checked:true,},
-    ]);
+    const [ list, setList, ] = useState([]);
+    
+    function createTodo(e){
+        if(e){
+            e.preventDefault();
+        }
+        
+        const field = document.getElementById('todo-input');
+        const todo = {
+            key: '',
+            name: '',
+            done: false,
+        };
+        
+        todo.name = field.value;
+        todo.key = `${Math.floor(Math.random() * 8888) + 1111}-${new Date().getTime()}`;
+        
+        setList(currentList => {
+            return [ ...currentList, todo, ];
+        });
+        
+        field.value = '';
+    }
     
     return (
         <main>
@@ -28,7 +47,7 @@ function App() {
                     
                     <hr />
                     
-                    <TodoForm />
+                    <TodoForm createTodo={createTodo} />
                 </div>
             </article>
         </main>
